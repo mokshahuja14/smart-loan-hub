@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Loan Calculator - Smart Loan Hub</title>
+  <meta name="description" content="Free personal loan EMI calculator with instant results and repayment breakdown.">
+  
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9fb; color: #333; line-height: 1.6;}
+    .container {width: 90%; max-width: 1100px; margin: 0 auto;}
+    .site-header {background: #004aad; color: white; padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);}
+    nav a {color: white; text-decoration: none; margin-right: 1rem; font-weight: 500; transition: color 0.3s ease;}
+    nav a:hover, nav a.active {color: #ffdf5d;}
+    .hero {text-align: center; padding: 2rem 1rem; background: linear-gradient(135deg, #004aad, #0077ff); color: white; border-radius: 10px; margin-top: 1.5rem;}
+    .hero h2 {font-size: 2rem; margin-bottom: 0.5rem;}
+    .loan-form {background: white; padding: 1.5rem; margin-top: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+    .loan-form label {display: block; margin: 0.5rem 0 0.2rem;}
+    .loan-form input {width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 5px;}
+    .btn {display: inline-block; padding: 0.6rem 1.2rem; background: #004aad; color: white; border-radius: 5px; text-decoration: none; font-weight: 500; transition: background 0.3s ease; cursor: pointer;}
+    .btn:hover {background: #003580;}
+    .result {margin-top: 1.5rem; padding: 1rem; background: #eef3fb; border-radius: 10px;}
+    .site-footer {margin-top: 3rem; background: #004aad; color: white; text-align: center; padding: 1rem 0;}
+    .site-footer nav a {color: #ffdf5d; margin: 0 0.5rem; text-decoration: none;}
+    .site-footer nav a:hover {text-decoration: underline;}
+    @media (max-width: 600px) {.hero h2 {font-size: 1.5rem;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1>💰 Smart Loan Hub</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="home-loan-calculator.html">Home Loan</a>
+      <a href="personal-loan-calculator.html" class="active">Personal Loan</a>
+      <a href="car-loan-calculator.html">Car Loan</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>💳 Personal Loan Calculator</h2>
+    <p>Find out your monthly EMI, total interest, and repayment amount instantly for personal loans.</p>
+  </section>
+
+  <section class="loan-form">
+    <label for="loanAmount">Loan Amount (₹):</label>
+    <input type="number" id="loanAmount" placeholder="Enter amount" />
+
+    <label for="interestRate">Interest Rate (% per annum):</label>
+    <input type="number" id="interestRate" step="0.01" placeholder="e.g. 12.5" />
+
+    <label for="loanTenure">Loan Tenure (months):</label>
+    <input type="number" id="loanTenure" placeholder="e.g. 24" />
+
+    <button class="btn" id="calculateBtn">Calculate EMI</button>
+
+    <div class="result" id="result" style="display:none;">
+      <h3>Results:</h3>
+      <p id="emiOutput"></p>
+      <p id="totalInterestOutput"></p>
+      <p id="totalPaymentOutput"></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Smart Loan Hub. All rights reserved.</p>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Use</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('calculateBtn').addEventListener('click', function() {
+    const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+    const annualRate = parseFloat(document.getElementById('interestRate').value);
+    const months = parseInt(document.getElementById('loanTenure').value);
+
+    if (isNaN(loanAmount) || isNaN(annualRate) || isNaN(months)) {
+      alert('Please enter all fields correctly.');
+      return;
+    }
+
+    const monthlyRate = (annualRate / 100) / 12;
+    const emi = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, months)) / 
+                (Math.pow(1 + monthlyRate, months) - 1);
+
+    const totalPayment = emi * months;
+    const totalInterest = totalPayment - loanAmount;
+
+    document.getElementById('emiOutput').textContent = `Monthly EMI: ₹${emi.toFixed(2)}`;
+    document.getElementById('totalInterestOutput').textContent = `Total Interest: ₹${totalInterest.toFixed(2)}`;
+    document.getElementById('totalPaymentOutput').textContent = `Total Payment: ₹${totalPayment.toFixed(2)}`;
+
+    document.getElementById('result').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Smart Loan Hub</title>
+  <meta name="description" content="Contact Smart Loan Hub for inquiries, feedback, or support.">
+
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9f9fb; color: #333; line-height: 1.6;}
+    .container {width: 90%; max-width: 1100px; margin: 0 auto;}
+    .site-header {background: #004aad; color: white; padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);}
+    nav a {color: white; text-decoration: none; margin-right: 1rem; font-weight: 500; transition: color 0.3s ease;}
+    nav a:hover, nav a.active {color: #ffdf5d;}
+    .hero {text-align: center; padding: 2rem 1rem; background: linear-gradient(135deg, #004aad, #0077ff); color: white; border-radius: 10px; margin-top: 1.5rem;}
+    .hero h2 {font-size: 2rem; margin-bottom: 0.5rem;}
+    .contact-form {background: white; padding: 1.5rem; margin-top: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+    .contact-form label {display: block; margin: 0.5rem 0 0.2rem;}
+    .contact-form input, .contact-form textarea {width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 5px;}
+    .btn {display: inline-block; padding: 0.6rem 1.2rem; background: #004aad; color: white; border-radius: 5px; text-decoration: none; font-weight: 500; transition: background 0.3s ease; cursor: pointer;}
+    .btn:hover {background: #003580;}
+    .site-footer {margin-top: 3rem; background: #004aad; color: white; text-align: center; padding: 1rem 0;}
+    .site-footer nav a {color: #ffdf5d; margin: 0 0.5rem; text-decoration: none;}
+    .site-footer nav a:hover {text-decoration: underline;}
+    @media (max-width: 600px) {.hero h2 {font-size: 1.5rem;}}
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1>💰 Smart Loan Hub</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="home-loan-calculator.html">Home Loan</a>
+      <a href="personal-loan-calculator.html">Personal Loan</a>
+      <a href="car-loan-calculator.html">Car Loan</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>📩 Contact Us</h2>
+    <p>Have questions or feedback? Fill out the form below and we'll get back to you soon.</p>
+  </section>
+
+  <section class="contact-form">
+    <form action="https://getform.io/f/bqoeozpb" method="POST">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2025 Smart Loan Hub. All rights reserved.</p>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Use</a> |
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
